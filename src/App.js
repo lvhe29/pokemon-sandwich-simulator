@@ -274,7 +274,7 @@ function App() {
     }
 
     return (
-      <div className='card' style={{ display: "flex" }}>
+      <div className='card' style={{ display: "flex", overflow: "hidden" }}>
         <img alt={sandwich.name} src={sandwich.imageUrl} style={{ width: "100px" }} />
         <div>
           <div className="bubble bubble-header" onClick={() => {
@@ -502,8 +502,9 @@ function App() {
     return (
       <div className='settings-bar'>
         <button className='button-spacing' onClick={() => setSimpleMode(!simpleMode)}>简略模式: {simpleMode ? "开启" : "关闭"}</button>
-        <button className='button-spacing' onClick={() => setShowSearchPanel(!showSearchPanel)}>搜索栏: {showSearchPanel ? "显示" : "隐藏"}</button>
         <button className='button-spacing' onClick={() => setMegaSandwichMode(!megaSandwichMode)}>多人模式: {megaSandwichMode ? "开启" : "关闭"}</button>
+        <br />
+        <button className='button-spacing' onClick={() => setShowSearchPanel(!showSearchPanel)}>搜索栏: {showSearchPanel ? "显示" : "隐藏"}</button>
         <button className='button-spacing' onClick={() => loadRecipe()}>输入食谱</button>
         <button className='button-spacing' onClick={() => saveRecipe()}>复制食谱到剪贴板</button>
       </div>
@@ -517,8 +518,8 @@ function App() {
       {renderCondiments()}
       {renderActive()}
       {renderMath()}
-      {renderSearch()}
       {renderSettings()}
+      {renderSearch()}
       <small><a href="https://github.com/cecilbowen/pokemon-sandwich-simulator">Source Code</a></small>
     </div>
   );

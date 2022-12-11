@@ -154,9 +154,11 @@
   border: 1px solid black;
   text-align: left;
   border-radius: 10px;
-  margin: 2px;
+  margin: 4px;
   width: fit-content;
   height: fit-content;
+  min-height: 70px;
+  min-width: 140px;
 }
 
 .page-break {
@@ -173,11 +175,15 @@
 .piece-button {
   margin-left: 4px;
   cursor: pointer;
+  width: 24px
 }
 
 .bubble-row {
   display: flex;
   flex-wrap: wrap;
+  min-height: 20px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .numbering {
@@ -224,6 +230,7 @@
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
   margin-right: 0px;
+  border-right: solid 1px #555;
 }
 .chain-b {
   border-bottom-left-radius: 0px;
@@ -232,6 +239,7 @@
   border-top-right-radius: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  border-right: solid 1px #555;
 }
 .chain-c {
   border-bottom-left-radius: 0px;

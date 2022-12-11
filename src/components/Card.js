@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-import { calculatePowerAmount } from '../util';
+import { calculatePowerAmount, toCN } from '../util';
 import { ALIAS_TO_FULL, COLORS, mode, copyTextToClipboard, isFilling, isFlavor, isType, shadeColor } from '../util';
 import TYPES from '../data/types.json';
 import POWERS from '../data/powers.json';
@@ -59,7 +59,7 @@ const Card = props => {
 
         return <div className={className} style={{ backgroundColor, borderColor, backgroundImage }} key={id}
             onClick={() => onSelectBubble(key)}>
-            <div>{key}:</div>
+            <div>{toCN(key)}:</div>
             <div style={{ marginLeft: "10px" }}>{kv.modded ? `${value} (${value - 100} + 100)` : value}</div>
         </div>;
     };
@@ -139,10 +139,10 @@ const Card = props => {
         </div>}
         {isSum && <div className='bubble bubble-header' title={sumStr} onClick={() => copyValues(tastes, powers, types)}>
             <img alt={"Total"} src="https://www.serebii.net/itemdex/sprites/sandwich.png" />
-            <div>Total Stats</div>
+            <div>总计属性</div>
         </div>}
         {!isSum && ingredient && isFilling(ingredient) && <div className="pieces">
-            <div title='How many pieces of this filling to put on sandwich'>Pieces: {ingredient.pieces}</div>
+            <div title='How many pieces of this filling to put on sandwich'>放入数量: {ingredient.pieces}</div>
             <button className='piece-button' onClick={() => modifyPieces(-1)}>-</button>
             <button className='piece-button' onClick={() => modifyPieces(1)}>+</button>
         </div>}
@@ -155,7 +155,7 @@ const Card = props => {
         </div>}
         {/*!isSum && <button className='expand-button' onClick={props?.onClick}></button>*/}
         {props.number !== undefined && <div className='numbering'>{props.number + 1}</div>}
-        {!isSum && !props.simpleMode && <div className='expand-help' onClick={props?.onClick}>{showStats ? "Click to minimize" : "expand"}</div>}
+        {!isSum && !props.simpleMode && <div className='expand-help' onClick={props?.onClick}>{showStats ? "收起详情" : "展开详情"}</div>}
       </div>
     );
 };

@@ -911,3 +911,55 @@ export const shadeColor = (color, percent = 30) => {
 
   return "#"+RR+GG+BB;
 };
+
+const translateMap = new Map([
+  // 味道
+  ["sweet", "甜"],
+  ["salty", "咸"],
+  ["sour", "酸"],
+  ["bitter", "苦"],
+  ["hot", "辣"],
+  // 食力
+  ["egg power", "蛋蛋力"],
+  ["catching power", "捕获力"],
+  ["exp. point power", "经验力"],
+  ["item drop power", "掉物力"],
+  ["raid power", "团战力"],
+  ["title power", "称号力"],
+  ["sparkling power", "闪耀力"],
+  ["humungo power", "大大力"],
+  ["teensy power", "小小力"],
+  ["encounter power", "遭遇力"],
+  // 食力简称
+  ["egg", "蛋蛋力"],
+  ["catch", "捕获力"],
+  ["exp", "经验力"],
+  ["item", "掉物力"],
+  ["raid", "团战力"],
+  ["title", "称号力"],
+  ["sparkling", "闪耀力"],
+  ["humungo", "大大力"],
+  ["teensy", "小小力"],
+  ["encounter", "遭遇力"],
+  // 属性
+  ["normal", "一般"],
+  ["fighting", "格斗"],
+  ["flying", "飞行"],
+  ["poison", "毒"],
+  ["ground", "地面"],
+  ["rock", "岩石"],
+  ["bug", "虫"],
+  ["ghost", "幽灵"],
+  ["steel", "钢"],
+  ["fire", "火"],
+  ["water", "水"],
+  ["grass", "草"],
+  ["electric", "电"],
+  ["psychic", "超能"],
+  ["ice", "冰"],
+  ["dragon", "龙"],
+  ["dark", "恶"],
+  ["fairy", "妖精"],
+]);
+
+export const toCN = EnString => translateMap.get(EnString.toLowerCase()) || EnString;

@@ -6,7 +6,7 @@ import FLAVORS from './data/flavors.json';
 import { useEffect, useState } from 'react';
 import { getCondiments, getFillings,
   ALIAS_TO_FULL, COLORS, oneTwoFirst, getIngredientsSums, craftSandwich, checkPresetSandwich,
-  copyTextToClipboard, hasRelevance, getCategory, getIngredientsFromRecipe } from './util';
+  copyTextToClipboard, hasRelevance, getCategory, getIngredientsFromRecipe, toCN } from './util';
 import { runTests } from './test/tests';
 import Card from './components/Card';
 import './App.css';
@@ -234,7 +234,7 @@ function App() {
       <div className='active-ingredients-bkg'>
         {activeFillings.map((x, i) => renderFilling(x, i, true))}
         {activeCondiments.map((x, i) => renderCondiment(x, i, true))}
-        {showClear && <span className='clear-ingredients' onClick={() => clearIngredients()}>clear</span>}
+        {showClear && <span className='clear-ingredients' onClick={() => clearIngredients()}>清空</span>}
       </div>
     )
   };
@@ -254,8 +254,8 @@ function App() {
 
     return (
       <div className="bubble-row" key={key}>
-        <div className="bubble chain-a" style={{ backgroundColor: powerColor }}>{`${effect.name}: `}</div>
-        <div className="bubble chain-b" style={{ backgroundColor: typeColor, display: effect.type === "" ? "none" : "" }}>{`${effect.type} `}</div>
+        <div className="bubble chain-a" style={{ backgroundColor: powerColor }}>{`${toCN(effect.name)}: `}</div>
+        <div className="bubble chain-b" style={{ backgroundColor: typeColor, display: effect.type === "" ? "none" : "" }}>{`${toCN(effect.type)} `}</div>
         <div className="bubble chain-c" style={{ backgroundColor: levelColor }}>{`Lv. ${effect.level}`}</div>
       </div>
     );
@@ -501,11 +501,11 @@ function App() {
   const renderSettings = () => {
     return (
       <div className='settings-bar'>
-        <button className='button-spacing' onClick={() => setSimpleMode(!simpleMode)}>Toggle Simple Mode: {simpleMode ? "On" : "Off"}</button>
-        <button className='button-spacing' onClick={() => setShowSearchPanel(!showSearchPanel)}>Toggle Search Panel</button>
-        <button className='button-spacing' onClick={() => setMegaSandwichMode(!megaSandwichMode)}>Toggle Multiplayer Mode: {megaSandwichMode ? "On" : "Off"}</button>
-        <button className='button-spacing' onClick={() => loadRecipe()}>Load Recipe</button>
-        <button className='button-spacing' onClick={() => saveRecipe()}>Save Recipe</button>
+        <button className='button-spacing' onClick={() => setSimpleMode(!simpleMode)}>简略模式: {simpleMode ? "开启" : "关闭"}</button>
+        <button className='button-spacing' onClick={() => setShowSearchPanel(!showSearchPanel)}>搜索栏: {showSearchPanel ? "显示" : "隐藏"}</button>
+        <button className='button-spacing' onClick={() => setMegaSandwichMode(!megaSandwichMode)}>多人模式: {megaSandwichMode ? "开启" : "关闭"}</button>
+        <button className='button-spacing' onClick={() => loadRecipe()}>输入食谱</button>
+        <button className='button-spacing' onClick={() => saveRecipe()}>复制食谱到剪贴板</button>
       </div>
     );
   };

@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-import { calculatePowerAmount, toCN } from '../util';
+import { calculatePowerAmount, toCN, toCN1 } from '../util';
 import { ALIAS_TO_FULL, COLORS, mode, copyTextToClipboard, isFilling, isFlavor, isType, shadeColor } from '../util';
 import TYPES from '../data/types.json';
 import POWERS from '../data/powers.json';
@@ -81,7 +81,7 @@ const Card = props => {
         return (<div className="bubble-row">
             {toRender.map((x, i) => renderKeyValue(x, i))}
             <div className="bubble bubble-type" style={{ backgroundColor }}>
-                <div>All Other Types:</div>
+                <div>其它属性总计:</div>
                 <div style={{ marginLeft: "10px" }}>{common}</div>
             </div>
         </div>);
@@ -135,14 +135,14 @@ const Card = props => {
         style={{ borderColor, backgroundColor, alignSelf: "center", position: "relative" }}>
         {!isSum && <div className='bubble bubble-header' onClick={props?.onClick}>
             <img alt={ingredient.name} src={ingredient.imageUrl} />
-            <div>{ingredient.name}</div>            
+            <div>{toCN1(ingredient.name)}</div>            
         </div>}
         {isSum && <div className='bubble bubble-header' title={sumStr} onClick={() => copyValues(tastes, powers, types)}>
             <img alt={"Total"} src="https://www.serebii.net/itemdex/sprites/sandwich.png" />
-            <div>总计属性</div>
+            <div>三明治属性</div>
         </div>}
         {!isSum && ingredient && isFilling(ingredient) && <div className="pieces">
-            <div title='How many pieces of this filling to put on sandwich'>放入数量: {ingredient.pieces}</div>
+            <div title='How many pieces of this filling to put on sandwich'>数量: {ingredient.pieces}</div>
             <button className='piece-button' onClick={() => modifyPieces(-1)}>-</button>
             <button className='piece-button' onClick={() => modifyPieces(1)}>+</button>
         </div>}

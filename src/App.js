@@ -6,7 +6,7 @@ import FLAVORS from './data/flavors.json';
 import { useEffect, useState } from 'react';
 import { getCondiments, getFillings,
   ALIAS_TO_FULL, COLORS, oneTwoFirst, getIngredientsSums, craftSandwich, checkPresetSandwich,
-  copyTextToClipboard, hasRelevance, getCategory, getIngredientsFromRecipe, toCN } from './util';
+  copyTextToClipboard, hasRelevance, getCategory, getIngredientsFromRecipe, toCN, toCN1 } from './util';
 import { runTests } from './test/tests';
 import Card from './components/Card';
 import './App.css';
@@ -155,7 +155,7 @@ function App() {
     <div className={divClass} key={`filling-${index}-${active ? 'active' : 'dormant'}`}>
       <img
         alt={filling.name}
-        title={filling.name}
+        title={toCN1(filling.name)}
         src={filling.imageUrl}
         className={className}
         onClick={() => {
@@ -205,7 +205,7 @@ function App() {
     <div className={divClass} key={`condiment-${index}-${active ? 'active' : 'dormant'}`}>
       <img
         alt={condiment.name}
-        title={condiment.name}
+        title={toCN1(condiment.name)}
         src={condiment.imageUrl}
         className={className}
         onClick={() => {
@@ -520,7 +520,7 @@ function App() {
       {renderMath()}
       {renderSettings()}
       {renderSearch()}
-      <small><a href="https://github.com/cecilbowen/pokemon-sandwich-simulator">Source Code</a></small>
+      <small>翻译自<a href="https://github.com/cecilbowen/pokemon-sandwich-simulator">这个项目</a></small>
     </div>
   );
 }

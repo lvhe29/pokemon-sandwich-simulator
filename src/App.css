@@ -175,7 +175,7 @@
 .piece-button {
   margin-left: 4px;
   cursor: pointer;
-  width: 24px
+  min-width: 24px
 }
 
 .bubble-row {
@@ -230,7 +230,7 @@
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
   margin-right: 0px;
-  border-right: solid 1px #555;
+  border-right: solid 0.5px #555;
 }
 .chain-b {
   border-bottom-left-radius: 0px;
@@ -239,7 +239,9 @@
   border-top-right-radius: 0px;
   margin-right: 0px;
   margin-left: 0px;
-  border-right: solid 1px #555;
+  border-right: solid 0.5px #555;
+  min-width: 32px;
+  justify-content: center;
 }
 .chain-c {
   border-bottom-left-radius: 0px;

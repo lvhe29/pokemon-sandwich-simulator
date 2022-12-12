@@ -254,7 +254,7 @@ function App() {
 
     return (
       <div className="bubble-row" key={key}>
-        <div className="bubble chain-a" style={{ backgroundColor: powerColor }}>{`${toCN(effect.name)}: `}</div>
+        <div className="bubble chain-a" style={{ backgroundColor: powerColor }}>{`${toCN(effect.name)}`}</div>
         <div className="bubble chain-b" style={{ backgroundColor: typeColor, display: effect.type === "" ? "none" : "" }}>{`${toCN(effect.type)} `}</div>
         <div className="bubble chain-c" style={{ backgroundColor: levelColor }}>{`Lv. ${effect.level}`}</div>
       </div>
@@ -269,7 +269,7 @@ function App() {
     if (sandwich.number === "???") {
       display = '⭐'.repeat(sandwich.stars);
       if (sandwich.effects.length === 0) {
-        display += "(failure)"
+        display += "(失败)"
       }
     }
 
@@ -282,7 +282,7 @@ function App() {
           }}
             style={{ backgroundColor: "tan" }}>{display}</div>
           {sandwich.effects.length > 0 && <div>{sandwich.effects.map((x, i) => renderSandwichBubble(x, i))}</div>}
-          {sandwich.effects.length === 0 && <div className='no-effects'>This sandwich has no effects.</div>}
+          {sandwich.effects.length === 0 && <div className='no-effects'>摩托蜥表示无法下咽</div>}
         </div>
       </div>
     );

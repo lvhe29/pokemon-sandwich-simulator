@@ -60,6 +60,17 @@ export const FLAVOR_TABLE = {
   },
 };
 
+export const FLAVOR_TABLE_EZ = {
+  "Egg": "sweet-salty/bitter",
+  "Catch": "sweet/sour",
+  "Raid": "sweet/hot",
+  "Encounter": "salty-sweet/sour/hot",
+  "Exp": "salty/bitter",
+  "Teensy": "sour-salty/bitter/hot",
+  "Item": "bitter-sweet/sour/hot",
+  "Humungo": "hot-salty/sour/bitter",
+};
+
 export const FLAVOR_PRIORITY_TABLE = {
   "Sweet": {
     "Salty": "Sweet",
@@ -781,12 +792,12 @@ export const isFilling = obj => {
 };
 
 export const isFlavor = obj => {
-  const str = obj.flavor || obj;
+  const str = obj?.flavor || obj;
   return FLAVORS.indexOf(str) !== -1;
 };
 
 export const isPower = obj => {
-  const str = obj.type || obj;
+  const str = obj?.type || obj;
 
   for (const power of POWERS) {
     if (power.indexOf(str) !== -1) {
@@ -798,7 +809,7 @@ export const isPower = obj => {
 };
 
 export const isType = obj => {
-  const str = obj.type || obj;
+  const str = obj?.type || obj;
   return TYPES.indexOf(str) !== -1;
 };
 
@@ -983,6 +994,15 @@ const translateMap = new Map([
   ["dragon", "龙"],
   ["dark", "恶"],
   ["fairy", "妖精"],
+  // 食力对应口味描述
+  ["sour-salty/bitter/hot", "酸咸 / 酸苦 / 酸辣"],
+  ["sweet-salty/bitter", "甜咸 / 甜苦"],
+  ["bitter-sweet/sour/hot", "苦甜 / 苦酸 / 苦辣"],
+  ["hot-salty/sour/bitter", "辣咸 / 辣酸 / 辣苦"],
+  ["salty-sweet/sour/hot", "咸甜 / 咸酸 / 咸辣"],
+  ["sweet/sour", "甜酸 / 酸甜"],
+  ["sweet/hot", "甜辣 / 辣甜"],
+  ["salty/bitter", "咸苦 / 苦咸"],
 ].map((value) => [value[0].toLocaleLowerCase(), value[1]]));
 
 const translateMap1 = new Map([
@@ -1048,5 +1068,5 @@ const translateMap1 = new Map([
   ["sweet herba mystica", "秘传：甜味料"],
 ].map((value) => [value[0].toLocaleLowerCase(), value[1]]));
 
-export const toCN = EnString => translateMap.get(EnString.toLowerCase()) || EnString;
-export const toCN1 = EnString => translateMap1.get(EnString.toLowerCase()) || EnString;
+export const toCN = (EnString = '') => translateMap.get(EnString.toLowerCase()) || EnString;
+export const toCN1 = (EnString = '') => translateMap1.get(EnString.toLowerCase()) || EnString;

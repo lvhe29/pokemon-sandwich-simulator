@@ -3,10 +3,12 @@ import { calculatePowerAmount, toCN, toCN1 } from '../util';
 import {
   ALIAS_TO_FULL,
   COLORS,
+  FLAVOR_TABLE_EZ,
   mode,
   copyTextToClipboard,
   isFilling,
   isFlavor,
+  isPower,
   isType,
   shadeColor,
 } from '../util';
@@ -116,7 +118,13 @@ const Card = (props) => {
     return (
       <div className="bubble-row">
         {toRender.map((x, i) => renderKeyValue(x, i))}
-        <div className="bubble bubble-type" style={{ backgroundColor }}>
+        <div
+          className="bubble bubble-type fake-border"
+          style={{
+            borderColor: '#0001',
+            backgroundColor,
+          }}
+        >
           <div>其它属性总计:</div>
           <div style={{ marginLeft: '10px' }}>{common}</div>
         </div>
@@ -178,6 +186,15 @@ const Card = (props) => {
     props.updatePieces();
   };
 
+  const flavorComboStr = FLAVOR_TABLE_EZ[props?.activeKey.power];
+  const powerExplain =
+    isPower(props?.activeKey.power) && flavorComboStr ? (
+      <span>
+        <b>+100 {toCN(props.activeKey.power)}:</b> {toCN(flavorComboStr)}
+      </span>
+    ) : null;
+  const powerExplainTitle = '';
+
   return (
     <div
       key={props.number ? props.number : ''}
@@ -196,17 +213,27 @@ const Card = (props) => {
         </List>
       )}
       {isSum && (
-        <List
-          className="bubble-header"
-          title={sumStr}
-          onClick={() => copyValues(tastes, powers, types)}
-        >
-          <img
-            alt={'Total'}
-            src="https://www.serebii.net/itemdex/sprites/sandwich.png"
-          />
-          <div>三明治属性</div>
-        </List>
+        <>
+          <List
+            className="bubble-header"
+            title={sumStr}
+            onClick={() => copyValues(tastes, powers, types)}
+          >
+            <img
+              alt={'Total'}
+              src="https://www.serebii.net/itemdex/sprites/sandwich.png"
+            />
+            <div>三明治属性</div>
+          </List>
+          {false && powerExplain && (
+            <>
+              <Separator thin />
+              <CenteredList title={powerExplainTitle}>
+                {powerExplain}
+              </CenteredList>
+            </>
+          )}
+        </>
       )}
       {!isSum && ingredient && isFilling(ingredient) && (
         <>

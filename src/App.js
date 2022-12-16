@@ -6,6 +6,7 @@ import FLAVORS from './data/flavors.json';
 import { useEffect, useState } from 'react';
 import {
   ALIAS_TO_FULL,
+  FLAVOR_TABLE_EZ,
   COLORS,
   checkPresetSandwich,
   copyTextToClipboard,
@@ -18,6 +19,7 @@ import {
   getRecipeFromIngredients,
   hasRelevance,
   oneTwoFirst,
+  isPower,
   toCN,
   toCN1,
 } from './util';
@@ -38,6 +40,7 @@ import {
   Button,
   IngredientName,
   AffectList,
+  PowerExplain,
 } from './style';
 import { ArrowRow } from './components/ui';
 
@@ -731,22 +734,40 @@ function App() {
     );
   };
 
+  const flavorComboStr = FLAVOR_TABLE_EZ[activeKey.power];
+  const powerExplain =
+    isPower(activeKey.power) && flavorComboStr ? (
+      <span>
+        <b>+100 {toCN(activeKey.power)}:</b> {toCN(flavorComboStr)}
+      </span>
+    ) : null;
+
   const renderTopBar = () => (
     <StyledTopBar>
-      <Button onClick={() => setMegaSandwichMode(!megaSandwichMode)}>
-        多人模式: {megaSandwichMode ? '开启' : '关闭'}
-      </Button>
-      <Button onClick={() => setSimpleMode(!simpleMode)}>
-        简单模式: {simpleMode ? '开启' : '关闭'}
-      </Button>
-      {!simpleMode && (
+      <CenteredList>
+        <Button onClick={() => setMegaSandwichMode(!megaSandwichMode)}>
+          多人模式: {megaSandwichMode ? '开启' : '关闭'}
+        </Button>
+        <Button onClick={() => setSimpleMode(!simpleMode)}>
+          简单模式: {simpleMode ? '开启' : '关闭'}
+        </Button>
+        {!simpleMode && (
+          <>
+            <Button
+              onClick={() => setAdvancedIngredients(!advancedIngredients)}
+            >
+              数值详情: {advancedIngredients ? '显示' : '隐藏'}
+            </Button>
+            <Button onClick={() => setShowIngredientName(!showIngredientName)}>
+              食材名称: {showIngredientName ? '显示' : '隐藏'}
+            </Button>
+          </>
+        )}
+      </CenteredList>
+      {powerExplain && (
         <>
-          <Button onClick={() => setAdvancedIngredients(!advancedIngredients)}>
-            食材详情: {advancedIngredients ? '显示' : '隐藏'}
-          </Button>
-          <Button onClick={() => setShowIngredientName(!showIngredientName)}>
-            食材名称: {showIngredientName ? '显示' : '隐藏'}
-          </Button>
+          <Separator thin />
+          <PowerExplain>{powerExplain}</PowerExplain>
         </>
       )}
     </StyledTopBar>

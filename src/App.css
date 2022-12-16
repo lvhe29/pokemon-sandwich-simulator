@@ -197,6 +197,7 @@ body {
 
 .bubble-header {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .bubble {
@@ -218,7 +219,7 @@ body {
 }
 
 .bubble-type {
-  border-radius: 5px;
+  border-radius: 16px 4px;
 }
 
 .chain-a {
@@ -281,3 +282,17 @@ body {
 small {
   font-size: 0.7em;
 }
+
+#power-flavors-description {
+  position: absolute;
+  width: fit-content;
+  top: 25px;
+  left: 46px;
+  font-style: italic;
+  font-weight: initial;
+  border: 1px dashed;
+  border-radius: 25px;
+  padding: 4px;
+  font-size: 12px;
+}
+

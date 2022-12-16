@@ -82,7 +82,14 @@ export const ContentList = styled.div`
   flex-shrink: 1;
 `;
 
-export const StyledTopBar = styled(CenteredList)`
+export const PowerExplain = styled(CenteredList)`
+  color: #555;
+  font-size: 14px;
+  height: 20px;
+  padding: 0 0 5px 0;
+`;
+
+export const StyledTopBar = styled.div`
   min-height: 40px;
   flex-shrink: 0;
   width: 100%;

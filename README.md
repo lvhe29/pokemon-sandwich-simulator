@@ -1,9 +1,6 @@
-# Pokemon Sandwich Simulator
+# 宝可梦朱紫三明治模拟器
 
-This tool lets you simulate making sandwiches for Pokemon Scarlet and Violet.
+翻译自[这个项目](https://github.com/cecilbowen/pokemon-sandwich-simulator)，界面也进行了一些调整。
 
-## Screenshots: https://imgur.com/a/WJXqJ5p
+网址: https://lvhe29.github.io/pokemon-sandwich-simulator/
 
-Live demo here: https://cecilbowen.github.io/pokemon-sandwich-simulator/
-
-This tool is not perfect, so if you find any recipes that are not accurate in-game, then the best place to post them for my visibility is here: https://redd.it/z8q0ko

@@ -1,7 +1,15 @@
-.App {
-  text-align: center;
+html {
+  height: 100%;
 }
 
+body {
+  background: #ffe;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
 .expand-button {
   position: absolute;
   top: 3px;
@@ -42,36 +50,28 @@
   width: fit-content;
   height: fit-content;
   position: relative;
-}
-
-.clear-ingredients {
-  border: 2px solid black;
-  border-radius: 10px;
-  border-style: dashed;
-  margin: 0px 2px 0px 2px;
-  width: fit-content;
-  height: fit-content;
-  align-self: center;
-  padding: 8px;
-  margin-bottom: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: monospace;
-  text-transform: uppercase;
-  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  margin: 4px;
+  background: #0007;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .ingredient-blur {
-  filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(240deg) brightness(35%) contrast(80%);
+  filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(240deg)
+    brightness(35%) contrast(80%);
   opacity: 0.3;
 }
 
 .key-selected {
-  border: 1px dashed black;
+  border: 1px solid #000;
   font-weight: bold;
   filter: contrast(150%);
   /*font-size: 13px;*/
+  box-shadow: 0px 0px 0px 3px #0004;
 }
 
 .fake-border {
@@ -79,21 +79,21 @@
 }
 
 .filling-bkg {
-  background-color: rgba(255, 0, 0, 0.13);
+  /* background-color: rgba(255, 0, 0, 0.13); */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .condiment-bkg {
-  background-color: rgba(0, 0, 255, 0.14);
+  /* background-color: rgba(0, 0, 255, 0.14); */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .active-ingredients-bkg {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   padding-top: 4px;
   display: flex;
   justify-content: center;
@@ -129,10 +129,6 @@
   margin-top: 10px;
 }
 
-.complex-search-panel > * {
-  margin-bottom: 4px;
-}
-
 .complex-row {
   justify-content: center;
 }
@@ -151,14 +147,15 @@
 }
 
 .card {
-  border: 1px solid black;
+  border: .5px solid #0007;
   text-align: left;
-  border-radius: 10px;
+  border-radius: 8px;
   margin: 4px;
   width: fit-content;
   height: fit-content;
-  min-height: 70px;
+  /* min-height: 70px; */
   min-width: 140px;
+  padding: 0 4px 4px;
 }
 
 .page-break {
@@ -175,7 +172,7 @@
 .piece-button {
   margin-left: 4px;
   cursor: pointer;
-  min-width: 24px
+  min-width: 24px;
 }
 
 .bubble-row {

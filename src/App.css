@@ -60,6 +60,11 @@ body {
   cursor: pointer;
 }
 
+.ingredient-div.active {
+  border: 2px solid #ff9;
+  box-shadow: inset 0 0 6px 0 #ee6, 0 0 6px 1px #0003;
+}
+
 .ingredient-blur {
   filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(240deg)
     brightness(35%) contrast(80%);

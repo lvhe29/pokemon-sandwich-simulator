@@ -27,6 +27,7 @@ export const AffectList = styled.div`
   align-items: center;
   height: 100%;
   padding: 0 4px;
+  background-color: #fff;
 `;
 
 export const List = styled.div`
@@ -53,6 +54,7 @@ export const StyledClearButton = styled.div`
   text-transform: uppercase;
   background-color: #fcc;
   color: #500;
+  border: 0.5px solid #f66;
   cursor: pointer;
 `;
 

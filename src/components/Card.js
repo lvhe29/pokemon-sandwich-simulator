@@ -57,7 +57,7 @@ const Card = (props) => {
     }
   };
 
-  const renderKeyValue = (kv, id) => {
+  const renderKeyValue = (kv, id, options = {}) => {
     let key = kv.type || kv.flavor;
     const value = isSum
       ? kv.amount
@@ -157,14 +157,12 @@ const Card = (props) => {
     types.length === 18 && !shouldRenderAllTypes;
   const defaultRender = !shouldRenderAllTypes && !shouldRenderAllOtherTypes;
 
-  let borderColor = 'black';
+  let borderColor = '#0009';
   let backgroundColor = 'white';
   if (ingredient) {
     if (isFilling(ingredient)) {
-      borderColor = 'red';
       backgroundColor = '#ff000021';
     } else {
-      borderColor = 'blue';
       backgroundColor = '#0000ff24';
     }
   }

@@ -204,7 +204,7 @@ function App() {
   const renderFilling = (filling, index, active) => {
     let className = 'ingredient';
 
-    let divClass = 'ingredient-div';
+    let divClass = 'ingredient-div' + (active ? ' active' : '');
     if (!active && !hasRelevance(filling, activeKey)) {
       divClass = 'ingredient-div ingredient-blur';
     }
@@ -258,11 +258,8 @@ function App() {
 
   const renderCondiment = (condiment, index, active) => {
     let className = 'ingredient';
-    // if (active) {
-    //   className += ' condiment-portrait';
-    // }
 
-    let divClass = 'ingredient-div';
+    let divClass = 'ingredient-div' + (active ? ' active' : '');
     if (!active && !hasRelevance(condiment, activeKey)) {
       divClass = 'ingredient-div ingredient-blur';
     }
@@ -409,7 +406,7 @@ function App() {
             }}
             style={{
               position: 'absolute',
-              left: '0px',
+              left: '2px',
               top: '0px',
               // backgroundColor: 'tan',
             }}

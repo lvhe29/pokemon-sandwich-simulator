@@ -500,7 +500,7 @@ function App() {
           {/* {!advancedIngredients && <br className="page-break" />} */}
         </CenteredList>
         <ArrowRow />
-        {showResults && !simpleMode ? (
+        {showResults && !simpleMode && advancedIngredients ? (
           <CenteredList>
             <Card
               sums={sums}
